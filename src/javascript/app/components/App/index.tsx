@@ -54,8 +54,21 @@ function App() {
     .colors(256)
     .map(valueToRGB565);
 
+  const body = document.querySelector('body');
+
+  if (body) {
+    body.style.background = color;
+  }
+
   return (
-    <div className="app">
+    <div className="app styled-scrollbars">
+      <h1 className="app__headline">
+        Gradient Values
+      </h1>
+      <p className="app__description">
+        { 'A simple tool to generate gradient values for use in the ' }
+        <a className="app__link" href="https://github.com/Raphael-Boichot/Mitsubishi-M64282FP-dashcam">dashboy camera</a>
+      </p>
       <ColorPicker
         value={color}
         onChange={setColor}
@@ -70,6 +83,7 @@ function App() {
       <pre className="app__output">
         { `[${colors.join(', ')}]` }
       </pre>
+      <a className="app__link" href="https://github.com/HerrZatacke/gradient-values">source code</a>
     </div>
   );
 }

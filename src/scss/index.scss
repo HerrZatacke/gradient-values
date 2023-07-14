@@ -10,3 +10,19 @@ body {
 * {
   box-sizing: border-box;
 }
+
+.styled-scrollbars {
+  --scrollbar-foreground: #ffffff50;
+  --scrollbar-background: #88888800;
+  scrollbar-color: var(--scrollbar-foreground) var(--scrollbar-background);
+}
+.styled-scrollbars::-webkit-scrollbar {
+  width: 5px; /* Mostly for vertical scrollbars */
+  height: 5px; /* Mostly for horizontal scrollbars */
+}
+.styled-scrollbars::-webkit-scrollbar-thumb { /* Foreground */
+  background: var(--scrollbar-foreground);
+}
+.styled-scrollbars::-webkit-scrollbar-track { /* Background */
+  background: var(--scrollbar-background);
+}
