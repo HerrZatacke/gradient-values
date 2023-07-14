@@ -126,7 +126,7 @@ const config = () => ({
       extensions: ['js', 'jsx'],
     }),
     new HtmlWebpackPlugin({
-      title: 'projectkick',
+      title: 'Gradient Values',
       template: './src/index.html',
       filename: 'index.html',
       chunks: ['main'],
