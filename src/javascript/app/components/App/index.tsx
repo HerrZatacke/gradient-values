@@ -63,7 +63,9 @@ function App() {
         hideColorTypeBtns
         hidePresets
         hideColorGuide
-        hideGradientControls
+        hideGradientStop
+        hideGradientType
+        hideGradientAngle
       />
       <pre className="app__output">
         { `[${colors.join(', ')}]` }
