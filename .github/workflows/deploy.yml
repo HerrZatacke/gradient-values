@@ -1,0 +1,44 @@
+name: Build 🧱 and Deploy 🛳
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout 💳
+        uses: actions/checkout@v3.3.0
+
+      - name: Setup node 💻
+        uses: actions/setup-node@v3.6.0
+        with:
+          node-version: '16.x'
+          cache: 'npm'
+
+      - name: Add release version to environment variables 🌍
+        run: |
+          node -e "console.log('RELEASE_VERSION=' + require('./package.json').version)" >> $GITHUB_ENV
+
+      - name: Check if tag already exists 🏷
+        id: checkTag
+        uses: mukunku/tag-exists-action@v1.2.0
+        with:
+          tag: ${{ env.RELEASE_VERSION }}
+
+      - name: Install npm dependencies 🔗
+        if: steps.checkTag.outputs.exists == 'false'
+        run: npm install
+
+      - name: Build 🧱
+        if: steps.checkTag.outputs.exists == 'false'
+        run: npm run build
+
+      - name: Deploy to GitHub-Pages 🛳
+        uses: JamesIves/github-pages-deploy-action@v4.4.1
+        if: steps.checkTag.outputs.exists == 'false'
+        with:
+          branch: gh-pages
+          folder: dist
