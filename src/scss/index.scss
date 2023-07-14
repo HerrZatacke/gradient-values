@@ -1,0 +1,12 @@
+@import '~reset-css/sass/reset';
+
+body {
+  @include fontFamily;
+
+  background: $color-background;
+  color: $color-black;
+}
+
+* {
+  box-sizing: border-box;
+}

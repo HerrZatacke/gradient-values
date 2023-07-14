@@ -1,0 +1,16 @@
+.app {
+  max-width: 294px;
+  margin: 40px auto;
+
+  &__output {
+    font-family: monospace;
+    padding: 12px;
+    font-size: 11px;
+    line-height: 13px;
+    background: $color-grey;
+    margin-top: 40px;
+    white-space: pre-line;
+    border: 2px solid black;
+    border-radius: 9px;
+  }
+}
