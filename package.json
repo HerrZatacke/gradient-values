@@ -1,6 +1,6 @@
 {
   "name": "gradient-values",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "gradient-values",
   "scripts": {
     "start": "npm run build && npm run host",
